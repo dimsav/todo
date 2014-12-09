@@ -4,28 +4,26 @@
 
 var todoControllers = angular.module('todoAppControllers', []);
 
-todoControllers.controller('todoListController', function ($scope, $http) {
+todoControllers.controller('todoListController', ['$scope', 'Todo',
+    function ($scope, Todo) {
+        $scope.todos = Todo.query();
 
-    $http.get('/todos').success(function(todos){
-        $scope.todos = todos;
-    });
+        $scope.addTodo = function(){
 
-    $scope.addTodo = function(){
+            var todo = {
+                text: $scope.newTodoText,
+                finished: false
+            };
 
-        var todo = {
-            text: $scope.newTodoText,
-            finished: false
+            $scope.todos.push(todo);
+            $http.post('todos', todo);
+
+            // Empty input field
+            $scope.newTodoText = '';
         };
 
-        $scope.todos.push(todo);
-        $http.post('todos', todo);
-
-        // Empty input field
-        $scope.newTodoText = '';
-    };
-
-    $scope.delete = function(index){
-        $scope.todos.splice(index, 1);
-    };
-
-});
+        $scope.delete = function(index){
+            $scope.todos.splice(index, 1);
+        };
+    }
+]);
