@@ -19,6 +19,4 @@
 		@yield('content_page')
 	</div>
 
-	{{ HTML::script('dev/js/main.js'); }}
-</body>
-</html>
+@stop
