@@ -37312,10 +37312,13 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
                 finished: false
             };
 
-            Todo.store(todo, function(newTodo){
-                $scope.todos.push(newTodo);
-            });
+            $scope.todos.push(todo);
 
+            Todo.store(todo, function(newTodo)
+            {
+                var index = $scope.todos.length - 1;
+                $scope.todos[index].id = newTodo.id;
+            });
             // Empty input field
             $scope.newTodoText = '';
         };
