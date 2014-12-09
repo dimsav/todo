@@ -1,6 +1,17 @@
-<?php 
+<?php
+use Dimsav\Todo\Exceptions\ValidationException;
+use Dimsav\Todo\Services\UserService;
 
 class AuthController extends \BaseController {
+    /**
+     * @var UserService
+     */
+    private $userService;
+
+    public function __construct(UserService $userService)
+    {
+        $this->userService = $userService;
+    }
 
     public function getLogin()
     {
@@ -13,7 +24,7 @@ class AuthController extends \BaseController {
 
     public function postLogin()
     {
-        if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')), true))
+        if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')], true))
         {
             return Redirect::route('home');
         }
@@ -38,11 +49,14 @@ class AuthController extends \BaseController {
 
     public function postRegistration()
     {
-        // Todo
-        $user = new \Dimsav\Todo\Models\User();
-        $user->email = Input::get('email');
-        $user->password = Hash::make(Input::get('password'));
-        $user->save();
+        try {
+            $user = $this->userService->register(Input::all());
+        }
+        catch (ValidationException $e)
+        {
+            return Redirect::route('registration')->withInput()->withErrors($e->getErrors());
+        }
+
         Auth::login($user);
     }
 }
