@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="en" ng-app="todoApp">
-<head>
-	<meta charset="UTF-8">
-	<title>Todo App</title>
-	{{ HTML::style('/css/main.css'); }}
-</head>
-<body ng-controller="TodosListController">
+@extends('layout')
+
+@section('body_attributes')
+	ng-controller="TodosListController"
+@stop
+@section('content')
 	<h1>Todos</h1>
 	<ul>
 		<li ng-repeat="todo in todos">
@@ -18,7 +16,4 @@
 		<input type="text" placeholder="New task" ng-model="newTodoText"/>
 		<button type="submit">Add</button>
 	</form>
-
-<script src="/dev/js/main.js"></script>
-</body>
-</html>
+@stop
