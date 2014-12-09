@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('body_attributes')
-	ng-controller="TodosListController"
+	ng-controller="todoListController"
 @stop
 @section('content')
 	<h1>Todos</h1>

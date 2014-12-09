@@ -1,20 +1,26 @@
-var todoApp = angular.module('todoApp', []);
+'use strict';
 
-todoApp.config(function($interpolateProvider){
-    $interpolateProvider.startSymbol('[[').endSymbol(']]');
-});
+/* Controllers */
 
-todoApp.controller('TodosListController', function ($scope) {
-    $scope.todos = [
-        { text: "Initiate repository", finished: true},
-        { text: "Finish app", finished: false}
-    ];
+var todoControllers = angular.module('todoAppControllers', []);
+
+todoControllers.controller('todoListController', function ($scope, $http) {
+
+    $http.get('/todos').success(function(todos){
+        $scope.todos = todos;
+    });
 
     $scope.addTodo = function(){
-        $scope.todos.push({
+
+        var todo = {
             text: $scope.newTodoText,
             finished: false
-        });
+        };
+
+        $scope.todos.push(todo);
+        $http.post('todos', todo);
+
+        // Empty input field
         $scope.newTodoText = '';
     };
 

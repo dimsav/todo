@@ -11,6 +11,9 @@ var cssFiles = [
 var jsFiles = [
     'assets/vendor/modernizr/modernizr.js',
     'assets/vendor/angular/angular.js',
+    'assets/vendor/angular-resource/angular-resource.js',
+    'assets/js/app.js',
+    'assets/js/services.js',
     'assets/js/controllers.js'
 ];
 
