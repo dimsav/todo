@@ -6,6 +6,7 @@ var uglify = require('gulp-uglify');
 
 var cssFiles = [
     'assets/vendor/bootstrap/dist/css/bootstrap.css',
+    'assets/vendor/flat-ui/dist/css/flat-ui.css',
     'assets/css/main.css'
 ];
 
@@ -21,11 +22,12 @@ var jsFiles = [
 ];
 
 var imgFiles = [
-    //'template/assets/img/*',
+    'assets/vendor/flat-ui/dist/img/**'
 ];
 
 var fontFiles = [
-    'assets/vendor/bootstrap/dist/fonts/*'
+    'assets/vendor/bootstrap/dist/fonts/*',
+    'assets/vendor/flat-ui/dist/fonts/**'
 ];
 
 var dirs = {
