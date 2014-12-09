@@ -28,5 +28,11 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
             Todo.destroy(todo);
             $scope.todos.splice(index, 1);
         };
+
+        $scope.change = function(index){
+            var todo = $scope.todos[index];
+            console.log(todo);
+            Todo.update({id: todo.id}, todo);
+        };
     }
 ]);
