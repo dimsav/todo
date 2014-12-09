@@ -6330,3 +6330,11 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+table.todos tbody tr:first-child td {
+    border-top: none;
+}
+table.todos input.text {
+    width: 100%;
+    border: none;
+}

@@ -1,13 +1,23 @@
-<!doctype html>
-<html lang="en" ng-app="todoApp">
-<head>
-	<meta charset="UTF-8">
-	<title>Todo App</title>
-	{{ HTML::style('dev//css/main.css'); }}
-</head>
-<body @yield('body_attributes')>
+@extends('html')
 
-	@yield('content')
+@section('content')
+
+	<div class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">Todo App</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/logout">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		@yield('content_page')
+	</div>
 
 	{{ HTML::script('dev/js/main.js'); }}
 </body>

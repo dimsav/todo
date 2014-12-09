@@ -5,7 +5,8 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 var cssFiles = [
-    'assets/vendor/bootstrap/dist/css/bootstrap.css'
+    'assets/vendor/bootstrap/dist/css/bootstrap.css',
+    'assets/css/main.css'
 ];
 
 var jsFiles = [
