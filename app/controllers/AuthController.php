@@ -12,6 +12,11 @@ class AuthController extends \BaseController {
 
     }
 
+    public function getLogout()
+    {
+
+    }
+
     public function getRegistration()
     {
         return View::make('pages.registration');
