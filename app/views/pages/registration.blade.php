@@ -21,6 +21,7 @@
             <div>
                 <a class="login-link" href="{{ route('login') }}">Login</a>
             </div>
+            @include('partials.messages')
         </div>
 
     </div>
