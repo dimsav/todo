@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Todo App</title>
-    {{ HTML::style('dev//css/main.css'); }}
+    {{ HTML::style('css/main.css'); }}
 </head>
 <body @yield('body_attributes')>
 
 @yield('content')
 
-{{ HTML::script('dev/js/main.js'); }}
+{{ HTML::script('js/main.js'); }}
 </body>
 </html>

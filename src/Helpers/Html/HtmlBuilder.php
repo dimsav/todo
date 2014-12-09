@@ -4,12 +4,14 @@ class HtmlBuilder extends \Illuminate\Html\HtmlBuilder {
 
     public function style($url, $attributes = [], $secure = null)
     {
+        $url = \App::environment() == 'local' ? 'dev/'. $url : $url;
         $url = $this->appendHashToFile($url);
         return parent::style($url, $attributes = [], $secure = null);
     }
 
     public function script($url, $attributes = [], $secure = null)
     {
+        $url = \App::environment() == 'local' ? 'dev/'. $url : $url;
         $url = $this->appendHashToFile($url);
         return parent::script($url, $attributes = [], $secure = null);
     }
