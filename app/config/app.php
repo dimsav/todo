@@ -106,7 +106,6 @@ return array(
 		'Illuminate\Encryption\EncryptionServiceProvider',
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
-		'Illuminate\Html\HtmlServiceProvider',
 		'Illuminate\Log\LogServiceProvider',
 		'Illuminate\Mail\MailServiceProvider',
 		'Illuminate\Database\MigrationServiceProvider',
@@ -122,7 +121,10 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		// Custom providers
+
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+		'Dimsav\Todo\Helpers\Html\HtmlServiceProvider',
 	),
 
 	/*
