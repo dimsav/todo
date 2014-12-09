@@ -15,5 +15,10 @@ todoApp.controller('TodosListController', function ($scope) {
             text: $scope.newTodoText,
             finished: false
         });
-    }
+    };
+
+    $scope.delete = function(index){
+        $scope.todos.splice(index, 1);
+    };
+
 });
