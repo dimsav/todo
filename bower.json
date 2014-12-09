@@ -1,0 +1,21 @@
+{
+  "name": "Todo app",
+  "authors": [
+    "Dimitris Savvopoulos <ds@dimsav.com>"
+  ],
+  "description": "Todo app",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "angular-latest": "~1.3.6",
+    "bootstrap": "~3.3.1"
+  }
+}
