@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Todo App</title>
+	{{ HTML::style('/css/main.css'); }}
 </head>
 <body ng-controller="TodosListController">
 	<h1>Todos</h1>

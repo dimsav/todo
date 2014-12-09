@@ -5,7 +5,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 
 var cssFiles = [
-    //'template/assets/css/main.css',
+    'assets/vendor/bootstrap/dist/css/bootstrap.css'
 ];
 
 var jsFiles = [
@@ -19,7 +19,7 @@ var imgFiles = [
 ];
 
 var fontFiles = [
-    //
+    'assets/vendor/bootstrap/dist/fonts/*'
 ];
 
 var dirs = {
