@@ -22,7 +22,7 @@
 				<td></td>
 				<td>
 					<form ng-submit="addTodo()">
-						<input class="text" type="text" placeholder="New task" ng-model="newTodoText"/>
+						<input autofocus class="text" type="text" placeholder="Enter task" ng-model="newTodoText"/>
 					</form>
 				</td>
 				<td></td>
