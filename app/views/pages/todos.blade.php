@@ -16,7 +16,7 @@
 				<td>
 					<input type="text" class="text" ng-model="todo.text" ng-change="change($index)" />
 				</td>
-				<td><a href="#" ng-click="delete($index)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+				<td class="vert-align"><a href="" class="danger" ng-click="delete($index)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 			</tr>
 			<tr>
 				<td></td>

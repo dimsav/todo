@@ -6338,3 +6338,15 @@ table.todos input.text {
     width: 100%;
     border: none;
 }
+
+.table tbody>tr>td.vert-align{
+    vertical-align: middle;
+}
+
+.danger {
+    color: #d43f3a;
+}
+
+.danger:hover {
+    color: #000000;
+}
