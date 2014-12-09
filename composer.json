@@ -14,11 +14,13 @@
 		"classmap": [
 			"app/commands",
 			"app/controllers",
-			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"psr-4": {
+		  "Dimsav\\Todo\\": "src"
+		}
 	},
 	"scripts": {
 		"post-install-cmd": [
