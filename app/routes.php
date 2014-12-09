@@ -16,4 +16,9 @@ Route::get('/', function()
 	return View::make('pages.todos');
 });
 
+Route::get ('login',    ['uses' => 'AuthController@getLogin', 'as' => 'login']);
+Route::post('login',    ['uses' => 'AuthController@postLogin']);
+Route::get ('register', ['uses' => 'AuthController@getRegistration',  'as' => 'registration']);
+Route::post('register', ['uses' => 'AuthController@postRegistration']);
+
 Route::resource('api/todos', 'ApiTodoController', ['only' => ['index', 'store', 'update', 'destroy']]);
