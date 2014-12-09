@@ -27422,6 +27422,7 @@ todoApp.controller('TodosListController', function ($scope) {
             text: $scope.newTodoText,
             finished: false
         });
+        $scope.newTodoText = '';
     };
 
     $scope.delete = function(index){
