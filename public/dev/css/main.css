@@ -12470,3 +12470,13 @@ table.todos input.text {
 .danger:hover {
     color: #000000;
 }
+
+html, body, .login-screen{
+    height: 100%;
+}
+.logo-big {
+    font-size: 70px;
+}
+.login-link {
+    color: #34495e;
+}
