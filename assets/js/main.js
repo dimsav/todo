@@ -2,7 +2,7 @@ $(function(){
 
     $('table.todos').on('keypress', 'input.text', function(e)
     {
-        if (e.keyCode == 40)
+        if (e.keyCode == 40 || e.keyCode == 13)
         {
             var $next = $(e.currentTarget).closest('tr').next().find('input.text');
             if ($next.length)
