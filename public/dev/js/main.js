@@ -37352,6 +37352,12 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
                     $scope.errorMessage = response.data;
                 }
             );
+            angular.forEach($scope.todos, function(value, key){
+                if (value.id == todo.id)
+                {
+                    delete $scope.todos[key];
+                }
+            });
         };
 
 
