@@ -1,5 +1,7 @@
 <?php namespace Dimsav\Todo\Services;
 
+use Hash;
+use Input;
 use Dimsav\Todo\Exceptions\ValidationException;
 use Dimsav\Todo\Models\User;
 use Dimsav\Todo\Validators\RegisterUserValidator;
@@ -17,17 +19,16 @@ class UserService {
     }
 
     /**
-     * @param array $attributes
      * @return User
      * @throws ValidationException
      */
-    public function register(array $attributes)
+    public function register()
     {
-        $this->validator->validate($attributes);
+        $this->validator->validate(Input::all());
 
         $user = new User;
-        $user->email = $attributes['email'];
-        $user->password = $attributes['password'];
+        $user->email = Input::get('email');
+        $user->password = Hash::make(Input::get('password'));
         $user->save();
         return $user;
     }

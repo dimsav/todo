@@ -50,7 +50,7 @@ class AuthController extends \BaseController {
     public function postRegistration()
     {
         try {
-            $user = $this->userService->register(Input::all());
+            $user = $this->userService->register();
         }
         catch (ValidationException $e)
         {
