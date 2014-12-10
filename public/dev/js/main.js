@@ -37308,6 +37308,7 @@ var todoControllers = angular.module('todoAppControllers', []);
 todoControllers.controller('todoListController', ['$scope', 'Todo',
     function ($scope, Todo) {
         $scope.todos = Todo.index();
+        $scope.showFinished = false;
         $scope.errorMessage = '';
 
         $scope.addTodo = function()
@@ -37338,10 +37339,9 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
             $scope.newTodoText = '';
         };
 
-        $scope.delete = function(index)
+        $scope.delete = function(todo)
         {
             $scope.errorMessage = '';
-            var todo = $scope.todos[index];
             Todo.destroy(todo,
                 // On success
                 function(){},
@@ -37352,13 +37352,19 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
                     $scope.errorMessage = response.data;
                 }
             );
-            $scope.todos.splice(index, 1);
         };
 
-        $scope.change = function(index){
+
+        $scope.change = function(todo)
+        {
             $scope.errorMessage = '';
-            var todo = $scope.todos[index];
             Todo.update({id: todo.id}, todo);
+        };
+
+        $scope.finishedFilter = function( ) {
+            return function( todo ) {
+                return todo.finished === $scope.showFinished;
+            };
         };
     }
 ]);

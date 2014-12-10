@@ -12488,3 +12488,8 @@ html, body, .login-screen{
 .footer {
     background-color: #f5f5f5;
 }
+
+.todo-filters {
+    float: right;
+    margin-top: 70px;
+}

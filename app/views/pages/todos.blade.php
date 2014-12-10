@@ -4,21 +4,32 @@
 	ng-controller="todoListController"
 @stop
 @section('content_page')
-	<h1 class="page-header">My todo list</h1>
+	<div class="container">
+		<div class="row page-header">
+			<div class="com-xs-12 col-sm-6">
+				<h1>My todo list</h1>
+			</div>
+			<div class="com-xs-12 col-sm-6">
+				<div class="todo-filters">
+					<a href="" ng-click="showFinished = false">pending</a> | <a href="" ng-click="showFinished = true">completed</a>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<table class="table todos">
 		<thead></thead>
 		<tbody>
-			<tr ng-repeat="todo in todos" ng-model-options="{ debounce: 200 }" >
+			<tr ng-repeat="todo in todos | filter:finishedFilter()" ng-model-options="{ debounce: 200 }" >
 				<td>
-					<input type="checkbox" ng-model="todo.finished" ng-change="change($index)"/>
+					<input type="checkbox" ng-model="todo.finished" ng-change="change(todo)"/>
 				</td>
 				<td>
-					<input type="text" class="text" ng-model="todo.text" ng-change="change($index)" />
+					<input type="text" class="text" ng-model="todo.text" ng-change="change(todo)" />
 				</td>
-				<td class="vert-align"><a href="" class="danger" ng-click="delete($index)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
+				<td class="vert-align"><a href="" class="danger" ng-click="delete(todo)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
 			</tr>
-			<tr>
+			<tr ng-hide="showFinished">
 				<td></td>
 				<td>
 					<form ng-submit="addTodo()">
