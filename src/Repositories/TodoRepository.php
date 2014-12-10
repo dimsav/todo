@@ -1,5 +1,6 @@
 <?php namespace Dimsav\Todo\Repositories; 
 
+use Dimsav\Todo\Exceptions\TodoNotFoundException;
 use Dimsav\Todo\Models\Todo;
 use Dimsav\Todo\Models\User;
 
@@ -20,15 +21,12 @@ class TodoRepository {
         return $this->model->where('user_id', $user->id)->get();
     }
 
-    public function create(array $attributes, User $user)
+    public function findByIdOrFail($id)
     {
-        $todo = new Todo;
-
-        $todo->text     = $attributes['text'];
-        $todo->finished = $attributes['finished'];
-        $todo->user_id  = $user->id;
-        $todo->save();
-
+        if ( ! $todo = $this->model->find($id))
+        {
+            throw new TodoNotFoundException;
+        }
         return $todo;
     }
 }

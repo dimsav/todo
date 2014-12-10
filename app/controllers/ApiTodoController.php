@@ -46,10 +46,8 @@ class ApiTodoController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$todo = Todo::find($id);
-		$todo->text = Input::get('text');
-		$todo->finished = Input::get('finished');
-		$todo->save();
+		$this->service->updateById($id);
+		return Response::json(null, 200);
 	}
 
 
