@@ -20,7 +20,7 @@
 	<table class="table todos">
 		<thead></thead>
 		<tbody>
-			<tr ng-repeat="todo in todos | filter:finishedFilter()" ng-model-options="{ debounce: 200 }" >
+			<tr ng-repeat="todo in todos | filter:finishedFilter()" ng-model-options="{ debounce: 200 }" data-id="[[ todo.id ]]">
 				<td>
 					<input type="checkbox" ng-model="todo.finished" ng-change="change(todo)"/>
 				</td>

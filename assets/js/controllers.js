@@ -40,6 +40,7 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
 
         $scope.delete = function(todo)
         {
+            $scope.moveCursorToPrevious(todo);
             $scope.errorMessage = '';
             Todo.destroy(todo,
                 // On success
@@ -78,5 +79,11 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
                 return todo.finished === $scope.showFinished;
             };
         };
+
+        $scope.moveCursorToPrevious = function(todo) {
+            var $previous = $('tr[data-id='+todo.id+']').prev().find('.text');
+            var value = $previous.val();
+            $previous.focus().val('').val(value); // Trick to move the caret at the end of the input
+        }
     }
 ]);
