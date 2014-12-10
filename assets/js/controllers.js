@@ -63,7 +63,14 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
         $scope.change = function(todo)
         {
             $scope.errorMessage = '';
-            Todo.update({id: todo.id}, todo);
+            if (todo.text === '')
+            {
+                $scope.delete(todo);
+            }
+            else
+            {
+                Todo.update({id: todo.id}, todo);
+            }
         };
 
         $scope.finishedFilter = function( ) {
