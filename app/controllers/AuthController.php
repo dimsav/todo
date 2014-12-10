@@ -58,5 +58,6 @@ class AuthController extends \BaseController {
         }
 
         Auth::login($user);
+        return Redirect::route('home');
     }
 }
