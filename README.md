@@ -1,9 +1,10 @@
 todo
 ====
 
-Todo assignment for madewithlove
+Todo assignment for madewithlove. Live demo [here](http://todo.dimsav.com).
 
-### Installation notes for development.
+### Installation steps for development environment.
+
 After cloning the repository, make sure gulp and nodejs are installed on your system.
 Then, run the following steps:
 
@@ -16,7 +17,9 @@ Then, run the following steps:
 
 Execute `composer install` to install composer dependencies.
 
-#### 3. Setup
+#### 3. Web server
+
+To simplify the setup process, I suggest to use laravel homestead as local web server:
 
 * Add `192.168.10.10 local.todo.com` to the host machine's /etc/hosts file. Use the local ip of the homestead machine.
 * Enter the following domain in Homestead.yaml, pointing to the appropriate repository path in the virtual machine:
@@ -28,11 +31,15 @@ Execute `composer install` to install composer dependencies.
 
 * Run `vagrant provision` to apply the homestead changes
 
-#### 4. Asset files (needed only to do changes in assets files)
+#### 4. Cache server
 
-1. Run `bower install` to download assets.
+Make sure Memcache is installed on the web server.
 
-2. Run these commands to setup gulp:
+#### 5. Asset files (needed only to do changes in assets files)
+
+* Run `bower install` to download assets.
+
+* Run these commands to setup gulp:
 
 ```bash
 npm install --save-dev gulp
@@ -42,3 +49,4 @@ npm install --save-dev gulp-concat
 npm install --save-dev gulp-uglify
 ```
 
+* Execute `gulp` to update asset files.
