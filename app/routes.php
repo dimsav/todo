@@ -23,3 +23,11 @@ Route::group(['before' => 'auth'], function()
     Route::get('/', ['uses' => 'TodoController@index', 'as' => 'home']);
     Route::resource('api/todos', 'ApiTodoController', ['only' => ['index', 'store', 'update', 'destroy']]);
 });
+
+Event::listen('illuminate.query', function($query)
+{
+    if (Config::get('app.debug'))
+    {
+        Log::info($query);
+    }
+});

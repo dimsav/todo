@@ -59,8 +59,8 @@ class ApiTodoController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$todo = Todo::find($id);
-		$todo->delete();
+		$this->service->deleteById($id);
+		return Response::json(null, 200);
 	}
 
 

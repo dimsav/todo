@@ -55,6 +55,7 @@ class TodoService {
         $todo->user_id  = $user->id;
         $todo->save();
 
+        $this->repo->clearCache($user);
         return $todo;
     }
 
@@ -66,11 +67,21 @@ class TodoService {
     public function updateById($id)
     {
         $this->todoValidator->validate(Input::all());
-        $todo = $this->repo->findByIdOrFail($id);
+        $user = $this->getCurrentUserOrFail();
+        $todo = $this->repo->findByIdOrFail($id, $user);
 
         $todo->text     = Input::get('text');
         $todo->finished = Input::get('finished');
         $todo->save();
+        $this->repo->clearCache($user);
+    }
+
+    public function deleteById($id)
+    {
+        $user = $this->getCurrentUserOrFail();
+        $todo = $this->repo->findByIdOrFail($id, $user);
+        $todo->delete();
+        $this->repo->clearCache($user);
     }
 
     /**

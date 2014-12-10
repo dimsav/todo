@@ -1,5 +1,6 @@
 <?php namespace Dimsav\Todo\Repositories; 
 
+use Cache;
 use Dimsav\Todo\Exceptions\TodoNotFoundException;
 use Dimsav\Todo\Models\Todo;
 use Dimsav\Todo\Models\User;
@@ -18,15 +19,28 @@ class TodoRepository {
 
     public function getAllByUser(User $user)
     {
-        return $this->model->where('user_id', $user->id)->get();
+        return Cache::tags('user_'.$user->id)->remember('get_all_todos_by_user_id_'.$user->id, 60, function() use ($user) {
+            \Log::info('not cached');
+            return $this->model->where('user_id', $user->id)->get();
+        });
     }
 
-    public function findByIdOrFail($id)
+    public function findByIdOrFail($id, User $user)
     {
-        if ( ! $todo = $this->model->find($id))
+        $todo = Cache::tags('user_'.$user->id)->remember("get_task_by_id_{$id}_user_".$user->id, 60, function() use ($id) {
+            \Log::info('not cached');
+            return $this->model->find($id);
+        });
+
+        if ( ! $todo)
         {
             throw new TodoNotFoundException;
         }
         return $todo;
+    }
+
+    public function clearCache(User $user)
+    {
+        Cache::tags('user_'.$user->id)->flush();
     }
 }
