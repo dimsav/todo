@@ -39,7 +39,7 @@ Route::filter('auth', function()
 	{
 		if (Request::ajax())
 		{
-			return Response::make('Unauthorized', 401);
+			return Response::make('Session has expired. Please refresh the page and try again.', 401);
 		}
 		else
 		{

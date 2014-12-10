@@ -30,5 +30,6 @@
 		</tbody>
 	</table>
 
+	<p class="message btn btn-block btn-lg btn-danger" ng-if="errorMessage">[[ errorMessage ]]</p>
 
 @stop
