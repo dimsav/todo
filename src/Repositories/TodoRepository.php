@@ -19,5 +19,16 @@ class TodoRepository {
     {
         return $this->model->where('user_id', $user->id)->get();
     }
-    
+
+    public function create(array $attributes, User $user)
+    {
+        $todo = new Todo;
+
+        $todo->text     = $attributes['text'];
+        $todo->finished = $attributes['finished'];
+        $todo->user_id  = $user->id;
+        $todo->save();
+
+        return $todo;
+    }
 }

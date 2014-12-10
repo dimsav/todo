@@ -32,12 +32,9 @@ class ApiTodoController extends \BaseController {
 	 */
 	public function store()
 	{
-		$todo = new Todo;
-		$todo->text = Input::get('text');
-		$todo->finished = Input::get('finished');
-		$todo->user_id = 1;
-		$todo->save();
-		return $todo;
+		$todo = $this->service->create(Input::all());
+
+		return Response::json($todo->toArray());
 	}
 
 
