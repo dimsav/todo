@@ -12484,3 +12484,7 @@ html, body, .login-screen{
 .message {
     margin-top: 20px;
 }
+
+.footer {
+    background-color: #f5f5f5;
+}

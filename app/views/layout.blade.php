@@ -19,4 +19,13 @@
 		@yield('content_page')
 	</div>
 
+	<div class="footer navbar navbar-default  navbar-fixed-bottom">
+		<div class="container">
+			<div class="navbar-right">
+				<div id="bs-example-navbar-collapse-4" class="collapse navbar-collapse">
+					<p class="navbar-text">Made with love by <a href="http://dimsav.com">Dimitris Savvopoulos</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
 @stop
