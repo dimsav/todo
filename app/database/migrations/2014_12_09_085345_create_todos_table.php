@@ -16,7 +16,7 @@ class CreateTodosTable extends Migration {
 		{
 		    $table->increments('id');
 		    $table->boolean('finished');
-		    $table->string('text');
+		    $table->string('text')->nullable();
 		    $table->integer('user_id')->unsigned();
 			$table->timestamps();
 

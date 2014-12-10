@@ -3,7 +3,6 @@
 class TodoValidator extends Validator {
 
     public $rules = [
-        'finished' => ['required'],
-        'text' => ['required'],
+        'finished' => ['required', 'boolean'],
     ];
 }
