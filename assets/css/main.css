@@ -21,6 +21,11 @@ table.todos input.text {
 html, body, .login-screen{
     height: 100%;
 }
+
+.login-screen {
+    padding: 12% 14%;
+}
+
 .logo-big {
     font-size: 70px;
 }
