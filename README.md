@@ -1,9 +1,10 @@
 todo
 ====
 
-Todo assignment for madewithlove
+Todo assignment for madewithlove. Live demo [here](http://todo.dimsav.com).
 
-### Installation notes for development.
+### Installation steps for development environment.
+
 After cloning the repository, make sure gulp and nodejs are installed on your system.
 Then, run the following steps:
 
@@ -28,7 +29,11 @@ Execute `composer install` to install composer dependencies.
 
 * Run `vagrant provision` to apply the homestead changes
 
-#### 4. Asset files (needed only to do changes in assets files)
+#### 4. Cache server
+
+Make sure Memcache is installed on the web server.
+
+#### 5. Asset files (needed only to do changes in assets files)
 
 1. Run `bower install` to download assets.
 
@@ -41,4 +46,3 @@ npm install --save-dev gulp-ruby-sass
 npm install --save-dev gulp-concat
 npm install --save-dev gulp-uglify
 ```
-
