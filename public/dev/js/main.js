@@ -37312,6 +37312,7 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
 
         $scope.addTodo = function()
         {
+            $scope.errorMessage = '';
             var todo = {
                 text: $scope.newTodoText,
                 finished: false
@@ -37337,20 +37338,26 @@ todoControllers.controller('todoListController', ['$scope', 'Todo',
             $scope.newTodoText = '';
         };
 
-        $scope.delete = function(index){
+        $scope.delete = function(index)
+        {
+            $scope.errorMessage = '';
             var todo = $scope.todos[index];
             Todo.destroy(todo,
+                // On success
                 function(){},
                 // On failure
-                function(response){
-                $scope.errorMessage = response.data;
-            });
+                function(response)
+                {
+                    $scope.todos.push(todo);
+                    $scope.errorMessage = response.data;
+                }
+            );
             $scope.todos.splice(index, 1);
         };
 
         $scope.change = function(index){
+            $scope.errorMessage = '';
             var todo = $scope.todos[index];
-            console.log(todo);
             Todo.update({id: todo.id}, todo);
         };
     }
