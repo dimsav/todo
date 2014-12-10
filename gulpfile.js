@@ -61,7 +61,7 @@ gulp.task('js', function(){
     return gulp.src(jsFiles, {base: dirs.js})
         .pipe(concat('main.js'))
         .pipe(gulp.dest(dirs.devJs))
-        //.pipe(uglify()) // There is an issue causing minification to break
+        .pipe(uglify())
         .pipe(gulp.dest(dirs.prodJs))
 });
 
