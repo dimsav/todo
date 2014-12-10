@@ -1,7 +1,18 @@
 <?php
 use Dimsav\Todo\Models\Todo;
+use Dimsav\Todo\Services\TodoService;
 
 class ApiTodoController extends \BaseController {
+
+	/**
+	 * @var TodoService
+	 */
+	private $service;
+
+	public function __construct(TodoService $service)
+	{
+		$this->service = $service;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +21,7 @@ class ApiTodoController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Todo::all();
+		return $this->service->getAllByCurrentUserToJson();
 	}
 
 
