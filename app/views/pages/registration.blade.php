@@ -12,10 +12,10 @@
 
             {{ Form::open() }}
                 @include('partials.user-form')
-                <div class="form-group @if($errors->has('password-confirm'))has-feedback has-error @endif"">
-                    <input class="form-control login-field" value="" name="password-confirm" placeholder="Password confirmation" id="password-confirm" type="password">
-                    <label class="login-field-icon fui-lock" for="password-confirm"></label>
-                    @include('partials.form-errors', array('field' => 'password-confirm'))
+                <div class="form-group @if($errors->has('password_confirmation'))has-feedback has-error @endif"">
+                    <input class="form-control login-field" value="" name="password_confirmation" placeholder="Password confirmation" id="password_confirmation" type="password">
+                    <label class="login-field-icon fui-lock" for="password_confirmation"></label>
+                    @include('partials.form-errors', array('field' => 'password_confirmation'))
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
             {{ Form::close() }}

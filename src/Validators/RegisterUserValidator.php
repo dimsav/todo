@@ -4,7 +4,7 @@ class RegisterUserValidator extends Validator {
 
     public $rules = [
         'email' => ['required', 'email', 'unique:users,email,{id}'],
-        'password' => ['required', 'min:4', 'confirmed:password-confirm'],
-        'password-confirm' => ['required']
+        'password' => ['required', 'min:4', 'confirmed'],
+        'password_confirmation' => ['required']
     ];
 }
