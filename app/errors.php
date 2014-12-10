@@ -16,6 +16,6 @@ App::error(function(\Dimsav\Todo\Exceptions\ValidationException $e)
 {
     if (Request::ajax())
     {
-        return Response::make('An error occured. Please refresh the page and try again.', 400);
+        return Response::make(implode(' ', $e->getErrors()->all()), 400);
     }
 });
